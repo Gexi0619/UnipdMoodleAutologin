@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>UnipdMoodleAutologin</title>
+    <style>
+      label {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>Unipd Moodle Autologin</h2>
+    <p>Welcome to use Unipd Moodle Autologin! It can help you automatically redirect and log in to SSO to access the Moodle and Uniweb platforms at Unipd.</p>
+    <p>Fill in the form below to save your autologin information. </p>
+    <form>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required />
+
+      <label for="password">Password:</label>
+      <div>
+        <input type="password" id="password" name="password" required />
+        <span id="toggle-password" onmousedown="showPassword()" onmouseup="hidePassword()" ontouchstart="showPassword()" ontouchend="hidePassword()">
+          &#x1f441;
+        </span>
+      </div>
+
+      <label>Type:</label>
+      <label>
+        <input type="radio" name="usertype" value="@studenti.unipd.it" />@studenti.unipd.it
+      </label>
+      <label style="display: block;">
+        <input type="radio" name="usertype" value="@unipd.it" />@unipd.it
+      </label>
+      <br>
+      <button type="submit">Save</button>
+    </form>
+    <p>Please note that your information will be saved in plain text on your computer. </p>
+    <p>You can also change your autologin information anytime by clicking on the extension icon. </p>
+    <script src="scripts/ajax_call.js"></script>
+  </body>
+</html>

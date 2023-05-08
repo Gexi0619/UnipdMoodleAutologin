@@ -1,0 +1,52 @@
+{
+    "name": "Unipd Moodle Autologin",
+    "version": "1.0",
+    "description": "Auto login Moodle and Uniweb platforms of UNIPD, support jumps.",
+    "background": {
+      "service_worker": "background.js"
+    },
+    "permissions": [
+      "activeTab",
+      "storage",
+      "https://ssu.elearning.unipd.it/",
+      "https://uniweb.unipd.it/",
+      "https://shibidp.cca.unipd.it/"
+    ],
+    "content_scripts": [
+      {
+        "matches": [
+          "https://ssu.elearning.unipd.it/*"
+        ],
+        "exclude_matches": [
+          "https://ssu.elearning.unipd.it/login/index.php"
+        ],
+        "js": ["scripts/Moodle_Login_click.js"]
+      },
+      {
+        "matches": [
+          "https://ssu.elearning.unipd.it/login/index.php"
+        ],
+        "js": ["scripts/SSO_jump.js"]
+      },
+      {
+        "matches": [
+          "https://uniweb.unipd.it/*"
+        ],
+        "js": ["scripts/uniweb_Login_click.js"]
+      },
+      {
+        "matches": [
+          "https://shibidp.cca.unipd.it/idp/profile/SAML2/Redirect/SSO?execution=*"
+        ],
+        "js": ["scripts/SSO_Login.js"]
+      }            
+    ],
+    
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "icons": {
+      "32": "icon/icon-giallo.png"
+    },
+    "manifest_version": 3
+  }
