@@ -56,7 +56,7 @@
       "default_popup": "popup.html"
     },
     "icons": {
-      "32": "icon/icon-giallo.png"
+      "32": "icon.png"
     },
     "manifest_version": 3
   }
