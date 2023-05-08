@@ -12,11 +12,11 @@
 
   <body>
     <h2>Unipd Moodle Autologin</h2>
-    <p>Welcome to use Unipd Moodle Autologin! It can help you automatically redirect and log in to SSO to access the Moodle and Uniweb platforms at Unipd.</p>
-    <p>Fill in the form below to save your autologin information. </p>
+    <p>Benvenuti nell'utilizzo di Unipd Moodle Autologin! Può aiutarti a ridirigere automaticamente e accedere a SSO per accedere alle piattaforme Moodle e Uniweb presso Unipd.</p>
+    <p>Compila il modulo sottostante per salvare le informazioni di accesso automatico. </p>
 
     <form>
-      <label for="username">Username:</label>
+      <label for="username">Nome utente: (nome.cognome) </label>
       <input type="text" id="username" name="username" required />
 
       <label for="password">Password:</label>
@@ -27,7 +27,7 @@
         </span>
       </div>
 
-      <label>Type:</label>
+      <label>Tipo di utente: (dominio email) </label>
       <label>
         <input type="radio" name="usertype" value="@studenti.unipd.it" />@studenti.unipd.it
       </label>
@@ -35,11 +35,11 @@
         <input type="radio" name="usertype" value="@unipd.it" />@unipd.it
       </label>
       <br>
-      <button type="submit">Save</button>
+      <button type="submit">Salva</button>
     </form>
     
-    <p>Please note that your information will be saved in plain text on your computer. </p>
-    <p>You can also change your autologin information anytime by clicking on the extension icon. </p>
+    <p>Si prega di notare che le informazioni verranno salvate in testo normale sul tuo computer. </p>
+    <p>È anche possibile modificare le informazioni di accesso automatico in qualsiasi momento facendo clic sull'icona dell'estensione. </p>
     <script src="scripts/ajax_call.js"></script>
   </body>
 </html>

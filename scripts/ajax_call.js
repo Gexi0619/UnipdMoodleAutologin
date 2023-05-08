@@ -36,7 +36,7 @@ form.addEventListener("submit", (e) => {
   storage.set({ "password": password });
   storage.set({ "usertype": userType });
 
-  const isSaved = window.confirm("Saved successfully!");
+  const isSaved = window.confirm("Salvato con successo!");
   if (isSaved) {
     window.close();
   }
@@ -44,6 +44,14 @@ form.addEventListener("submit", (e) => {
 });
 
 // Toggle password visibility
+togglePassword.addEventListener("mouseover", () => {
+  togglePassword.style.cursor = "pointer";
+});
+
+togglePassword.addEventListener("mouseout", () => {
+  togglePassword.style.cursor = "default";
+});
+
 togglePassword.addEventListener("mousedown", () => {
   passwordInput.type = "text";
 });
@@ -59,3 +67,17 @@ togglePassword.addEventListener("touchstart", () => {
 togglePassword.addEventListener("touchend", () => {
   passwordInput.type = "password";
 });
+
+
+// save button pointer
+const saveButton = document.querySelector('button[type="submit"]');
+
+saveButton.addEventListener('mouseover', () => {
+  saveButton.style.cursor = 'pointer';
+});
+
+saveButton.addEventListener('mouseout', () => {
+  saveButton.style.cursor = 'default';
+});
+
+
