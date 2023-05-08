@@ -8,6 +8,7 @@
     "permissions": [
       "activeTab",
       "storage",
+      "https://elearning.unipd.it/",
       "https://ssu.elearning.unipd.it/",
       "https://uniweb.unipd.it/",
       "https://shibidp.cca.unipd.it/"
@@ -15,16 +16,25 @@
     "content_scripts": [
       {
         "matches": [
-          "https://ssu.elearning.unipd.it/*"
+          "https://*.elearning.unipd.it/*"
         ],
         "exclude_matches": [
-          "https://ssu.elearning.unipd.it/login/index.php"
+          "https://*.elearning.unipd.it/login/index.php"
         ],
         "js": ["scripts/Moodle_Login_click.js"]
       },
       {
         "matches": [
-          "https://ssu.elearning.unipd.it/login/index.php"
+          "https://elearning.unipd.it/*"
+        ],
+        "exclude_matches": [
+          "https://elearning.unipd.it/login/index.php"
+        ],
+        "js": ["scripts/Moodle_Login_click.js"]
+      },
+      {
+        "matches": [
+          "https://*.elearning.unipd.it/login/index.php"
         ],
         "js": ["scripts/SSO_jump.js"]
       },

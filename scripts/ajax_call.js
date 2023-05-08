@@ -1,67 +1,61 @@
-let showPasswordTimeout;
 const passwordInput = document.querySelector("#password");
 const togglePassword = document.querySelector("#toggle-password");
+const form = document.querySelector("form");
+const usernameInput = document.querySelector("#username");
+const userTypeInputs = document.querySelectorAll("input[name='usertype']");
+const storage = chrome.storage.local;
 
-const showPassword = () => {
-  passwordInput.type = "text";
-  clearTimeout(showPasswordTimeout);
-};
+let savedUsername = "";
+let savedPassword = "";
+let savedUserType = "";
 
-const hidePassword = () => {
-  passwordInput.type = "password";
-  showPasswordTimeout = setTimeout(() => {
-    passwordInput.type = "password";
-  }, 1000);
-};
+// Restore saved data from storage
+storage.get(["username", "password", "usertype"], function(data) {
+  savedUsername = data.username || "";
+  savedPassword = data.password || "";
+  savedUserType = data.usertype || "";
 
-// 将变量声明提前，以便在后面的代码中使用
-let savedUsername, savedPassword, savedUserType;
-
-// 使用chrome.storage.local.get异步函数，将获取数据的代码移动到回调函数中
-chrome.storage.local.get("username", function(data) {
-  savedUsername = data.username; 
-  if (savedUsername) {
-    document.querySelector("#username").value = savedUsername;
-  }
+  usernameInput.value = savedUsername;
+  passwordInput.value = savedPassword;
+  userTypeInputs.forEach((input) => {
+    if (input.value === savedUserType) {
+      input.checked = true;
+    }
+  });
 });
 
-chrome.storage.local.get("password", function(data) {
-  savedPassword = data.password; 
-  if (savedPassword) {
-    passwordInput.value = savedPassword;
-    passwordInput.type = "password";
-  }
-});
-
-chrome.storage.local.get("usertype", function(data) {
-  savedUserType = data.usertype; 
-  if (savedUserType) {
-    const userTypeInput = document.querySelector(`input[value='${savedUserType}']`);
-    userTypeInput.checked = true;
-  }
-});
-
-document.querySelector("form").addEventListener("submit", (e) => {
+// Save form data to storage
+form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const usernameInput = document.querySelector("#username");
-  const passwordInput = document.querySelector("#password");
-  const userTypeInput = document.querySelector("input[name='usertype']:checked");
 
-  // 修复变量名错误，将username改为usernameInput，password改为passwordInput，usertype改为userTypeInput
-  const username = usernameInput.value;
-  const password = passwordInput.value;
-  const userType = userTypeInput.value;
+  const username = usernameInput.value.trim();
+  const password = passwordInput.value.trim();
+  const userType = document.querySelector("input[name='usertype']:checked").value;
 
-  chrome.storage.local.set({ "username": username });
-  chrome.storage.local.set({ "password": password });
-  chrome.storage.local.set({ "usertype": userType });
+  storage.set({ "username": username });
+  storage.set({ "password": password });
+  storage.set({ "usertype": userType });
 
-  alert(
-    `Saved successfully!`
-  );
+  const isSaved = window.confirm("Saved successfully!");
+  if (isSaved) {
+    window.close();
+  }
+  
 });
 
-togglePassword.addEventListener("mousedown", showPassword);
-togglePassword.addEventListener("mouseup", hidePassword);
-togglePassword.addEventListener("touchstart", showPassword);
-togglePassword.addEventListener("touchend", hidePassword);
+// Toggle password visibility
+togglePassword.addEventListener("mousedown", () => {
+  passwordInput.type = "text";
+});
+
+togglePassword.addEventListener("mouseup", () => {
+  passwordInput.type = "password";
+});
+
+togglePassword.addEventListener("touchstart", () => {
+  passwordInput.type = "text";
+});
+
+togglePassword.addEventListener("touchend", () => {
+  passwordInput.type = "password";
+});

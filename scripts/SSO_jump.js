@@ -1,4 +1,1 @@
-var linkElement = document.querySelector('a[href="https://ssu.elearning.unipd.it/auth/shibboleth/index.php"]');
-if (linkElement) {
-linkElement.click();
-}
+document.querySelector("a[href*='elearning.unipd.it'][href*='/shibboleth/index.php']").click();

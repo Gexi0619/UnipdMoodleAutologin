@@ -5,7 +5,7 @@ chrome.runtime.onInstalled.addListener(function(details) {
         chrome.windows.create({
           url: "popup.html",
           type: "popup",
-          width: 300,
+          width: 500,
           height: 500
         });
       }
