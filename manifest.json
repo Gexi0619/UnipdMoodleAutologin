@@ -1,12 +1,11 @@
 {
     "name": "Unipd Moodle Autologin",
     "version": "1.0",
-    "description": "Auto login Moodle and Uniweb platforms of UNIPD, support jumps.",
+    "description": "Accede automaticamente alle piattaforme Moodle e Uniweb dell'UNIPD",
     "background": {
       "service_worker": "background.js"
     },
     "permissions": [
-      "activeTab",
       "storage",
       "https://elearning.unipd.it/",
       "https://ssu.elearning.unipd.it/",
@@ -35,6 +34,12 @@
       {
         "matches": [
           "https://*.elearning.unipd.it/login/index.php"
+        ],
+        "js": ["scripts/SSO_jump.js"]
+      },
+      {
+        "matches": [
+          "https://*.elearning.unipd.it/*/login/index.php"
         ],
         "js": ["scripts/SSO_jump.js"]
       },
