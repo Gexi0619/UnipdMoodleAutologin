@@ -37,7 +37,9 @@ form.addEventListener("submit", (e) => {
   storage.set({ "usertype": userType });
 
   const isSaved = window.confirm("Salvato con successo! Prova qui: Moodle (https://elearning.unipd.it), Uniweb (www.uniweb.unipd.it)");
-  
+  if (isSaved) {
+    window.close();
+  }
 });
 
 // Toggle password visibility

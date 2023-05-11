@@ -8,15 +8,15 @@ The Unipd Moodle Autologin extension helps you automatically redirect and log in
 
 ### Chrome Extension
 
-Users of the Chrome browser can download and install the Chrome extension version from the [Chrome Web Store](https://chrome.google.com/webstore/category/extensions?hl=en).
+Users of the Chrome browser can download and install the Chrome extension version from the [Chrome Web Store](https://chrome.google.com/webstore/detail/unipd-moodle-autologin/eljiobjmiknmjbocoaleahajekpkpoab?hl=it).
 
 ### Edge Extension
 
-Users of the Edge browser can download and install the Edge extension version from the [Edge Extensions](https://chrome.google.com/webstore/category/extensions?hl=en) website.
+If you are using the Edge browser, you will need to manually install the extension by following these steps:
 
-### CRX
-
-For Chrome and Edge browser users who prefer not to use the applications from the extension stores, you can download the CRX file of this extension and manually install it in your Chrome or Edge browser.
+1. Download the compressed ZIP file from [here](https://github.com/Gexi0619/UnipdMoodleAutologin/releases/download/v1.0.2/v1.0.2-UnipdMoodleAutologin.zip) and extract it locally on your computer.
+2. In the Edge browser, visit `edge://extensions/` . Enable the "Modalità sviluppatore" on the left-hand side of the page.
+3. Click on "Carica decompressa" and select the directory where you extracted the files from the ZIP archive. The extension should now be installed and ready to use in your Edge browser.
 
 ### Safari Extension
 
