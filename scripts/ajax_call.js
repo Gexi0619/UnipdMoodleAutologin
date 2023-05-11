@@ -37,19 +37,6 @@ form.addEventListener("submit", (e) => {
   storage.set({ "usertype": userType });
 
   const isSaved = window.confirm("Salvato con successo! Prova qui: Moodle (https://elearning.unipd.it), Uniweb (www.uniweb.unipd.it)");
-
-  if (isSaved) {
-    const moodleLink = document.createElement("a");
-    moodleLink.href = "https://elearning.unipd.it/";
-    moodleLink.target = "_blank";
-    moodleLink.click();
-  
-    const uniwebLink = document.createElement("a");
-    uniwebLink.href = "https://www.uniweb.unipd.it/";
-    uniwebLink.target = "_blank";
-    uniwebLink.click();
-  }
-  
   
 });
 
