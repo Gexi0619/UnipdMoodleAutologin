@@ -14,7 +14,7 @@ Users of the Chrome browser can download and install the Chrome extension versio
 
 If you are using the Edge browser, you will need to manually install the extension by following these steps:
 
-1. Download the compressed ZIP file from [here](https://github.com/Gexi0619/UnipdMoodleAutologin/releases/download/v1.0.2/v1.0.2-UnipdMoodleAutologin.zip) and extract it locally on your computer.
+1. Download the compressed ZIP file from [here](https://github.com/Gexi0619/UnipdMoodleAutologin/releases) and extract it locally on your computer.
 2. In the Edge browser, visit `edge://extensions/` . Enable the "Modalità sviluppatore" on the left-hand side of the page.
 3. Click on "Carica decompressa" and select the directory where you extracted the files from the ZIP archive. The extension should now be installed and ready to use in your Edge browser.
 
@@ -31,10 +31,16 @@ Under development.
 ## Features
 
 1. SSO Autologin: For `https://shibidp.cca.unipd.it/idp/profile/SAML2/Redirect/SSO?execution=*`, the extension automatically fills in the saved Username, Password, and Usertype fields based on the user's personal login information and automatically clicks the login button.
+
 2. Automatic Redirection: The extension performs automatic redirection for the following URLs:
-   - `https://*.elearning.unipd.it/*` and `https://elearning.unipd.it/*`
-   - `https://*.elearning.unipd.it/login/index.php` and `https://*.elearning.unipd.it/*/login/index.php`
-   - `https://uniweb.unipd.it/*` For all Moodle links of our university, please visit https://www.unipd.it/elearning.
+   - `https://*.elearning.unipd.it/*` or `https://elearning.unipd.it/*`
+   
+   - `https://*.elearning.unipd.it/login/index.php` or `https://*.elearning.unipd.it/*/login/index.php`
+   
+   - `https://uniweb.unipd.it/*` 
+     
+     For all Moodle links of our university, please visit https://www.unipd.it/elearning.
+   
 3. Privacy: The extension stores your login information in plaintext in your local Chrome storage and does not upload it to any cloud servers.
 
 ## Contributing
